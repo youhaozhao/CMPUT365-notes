@@ -105,6 +105,7 @@ where $0 \le \gamma \le 1$ is the **discount factor**.
 | Recursive | $G_t = R_{t+1} + \gamma G_{t+1}$ |
 
 **Effect of $\gamma$:**
+
 | Value | Behavior |
 |-------|----------|
 | $\gamma = 0$ | Myopic — only cares about immediate reward |
