@@ -60,11 +60,17 @@ $$\sum_{s' \in \mathcal{S}} \sum_{r \in \mathcal{R}} p(s', r \mid s, a) = 1, \qu
 
 > The future is independent of the past, **given** the present.
 
-$$\Pr(S_{t+1} \mid S_t) = \Pr(S_{t+1} \mid S_1, S_2, \ldots, S_t)$$
+In an MDP, the Markov property is defined **given the current state and action**:
+
+$$\Pr(S_{t+1}, R_{t+1} \mid S_t, A_t) = \Pr(S_{t+1}, R_{t+1} \mid S_1, A_1, S_2, A_2, \ldots, S_t, A_t)$$
+
+Equivalently (if you only care about the next state):
+
+$$\Pr(S_{t+1} \mid S_t, A_t) = \Pr(S_{t+1} \mid S_1, A_1, S_2, A_2, \ldots, S_t, A_t)$$
 
 **Examples:**
 - **Chess**: The current board position contains all information needed to decide the next move
-- **Pong**: The current frame (ball position, paddle positions, velocities) is sufficient to predict the next state
+- **Pong**: The current frame plus velocities (or a short history of frames) is sufficient to predict the next state
 
 > This should be viewed as a restriction on the state representation. If the state is well defined, then it contains all the information necessary to predict the future, and the Markov property holds. If the state is not well defined, then it fails to summarize the relevant history, and the Markov property is violated.
 
