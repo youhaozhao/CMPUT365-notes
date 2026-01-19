@@ -69,8 +69,8 @@ Equivalently (if you only care about the next state):
 $$\Pr(S_{t+1} \mid S_t, A_t) = \Pr(S_{t+1} \mid S_1, A_1, S_2, A_2, \ldots, S_t, A_t)$$
 
 **Examples:**
-- **Chess**: The current board position contains all information needed to decide the next move
-- **Pong**: The current frame plus velocities (or a short history of frames) is sufficient to predict the next state
+- **Chess**: The full game state (board position, side to move, castling/en passant rights) is sufficient to determine legal moves and transitions
+- **Pong**: The current frame plus velocities (or a short history of frames), together with the action, is sufficient to predict the next state
 
 > This should be viewed as a restriction on the state representation. If the state is well defined, then it contains all the information necessary to predict the future, and the Markov property holds. If the state is not well defined, then it fails to summarize the relevant history, and the Markov property is violated.
 
