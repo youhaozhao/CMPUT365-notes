@@ -1,0 +1,10 @@
+from: gfm
+pdf-engine: xelatex
+variables:
+  geometry: margin=0.8in
+  fontsize: 11pt
+  linestretch: 1.1
+  mainfont: "Liberation Serif"
+  sansfont: "Liberation Sans"
+  monofont: "DejaVu Sans Mono"
+include-in-header: .pandoc/header.tex
