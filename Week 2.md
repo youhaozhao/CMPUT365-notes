@@ -97,6 +97,7 @@ $$G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\inft
 where $0 \le \gamma \le 1$ is the **discount factor**.
 
 **Why discount?**
+
 | Reason | Explanation |
 |--------|-------------|
 | Mathematical | Ensures infinite sum converges (bounded by $\frac{R_{max}}{1-\gamma}$) |
