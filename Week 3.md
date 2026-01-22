@@ -34,6 +34,8 @@ $$q_\pi(s, a) = \mathbb{E}_\pi[G_t \mid S_t = s, A_t = a]$$
 | $q_\pi$ | $v_\pi$ | $v_\pi(s) = \sum_a \pi(a \mid s) \, q_\pi(s, a)$ |
 | $v_\pi$ | $q_\pi$ | $q_\pi(s, a) = \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma v_\pi(s') \right]$ |
 
+Here $r$ denotes possible values of the random reward $R_{t+1}$.
+
 ## Value Functions Satisfy Recursive Relationships
 
 Value functions can be expressed recursively — the value of the current state depends on the values of successor states. This recursive structure arises from the definition of return:
@@ -48,7 +50,7 @@ $$v_\pi(s) = \mathbb{E}_\pi[G_t \mid S_t = s] = \mathbb{E}_\pi[R_{t+1} + \gamma 
 
 The key step from $G_{t+1}$ to $v_\pi(S_{t+1})$ relies on the **Markov property**: the distribution of $G_{t+1}$ only depends on the next state $S_{t+1}$, not on earlier history.
 
-$$\mathbb{E}[G_{t+1} \mid S_t = s, A_t = a, S_{t+1} = s'] = \mathbb{E}[G_{t+1} \mid S_{t+1} = s'] = v_\pi(s')$$
+$$\mathbb{E}_\pi[G_{t+1} \mid S_t = s, A_t = a, S_{t+1} = s'] = \mathbb{E}_\pi[G_{t+1} \mid S_{t+1} = s'] = v_\pi(s')$$
 
 This allows us to substitute $G_{t+1}$ with $v_\pi(S_{t+1})$, yielding the **recursive form**:
 

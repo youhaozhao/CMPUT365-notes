@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '**/*.md'
+      - 'asset/**'
+      - 'template/**'
       - '!**/README.md'
       - '!PDF/**'
       - '!.github/**'
@@ -77,6 +79,16 @@ jobs:
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.sha }}"
           if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            # Remove PDFs for deleted markdown files
+            DELETED=$(git diff --name-only --diff-filter=D "$BEFORE" "$AFTER" -- '*.md' ':!**/README.md' ':!PDF/**' ':!.github/**')
+            if [ -n "$DELETED" ]; then
+              while IFS= read -r file; do
+                rel="${file%.md}.pdf"
+                out="PDF/$rel"
+                [ -f "$out" ] && rm -f "$out"
+              done <<< "$DELETED"
+            fi
+
             CHANGED=$(git diff --name-only "$BEFORE" "$AFTER" -- '*.md' ':!**/README.md' ':!PDF/**' ':!.github/**')
           else
             # Fallback for force-push or manual runs: rebuild all markdown
