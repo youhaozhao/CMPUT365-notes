@@ -1,7 +1,5 @@
 # Week 2
 
----
-
 ## Maze Navigating
 
 ![Maze Example](assets/week2/maze.png)
@@ -13,7 +11,7 @@
 | Reward | +1 upon arrival to G, 0 otherwise |
 | Dynamics | Deterministic outside mud puddle; at mud puddle, stuck with prob. 0.9 |
 
----
+
 
 ## Bandits
 
@@ -26,15 +24,13 @@
 | Action | Choose among available arms |
 | Dynamics | **No dynamics** — always returns to same state |
 
----
+
 
 ## Boundary Between Agent and Environment
 
 - The agent-environment boundary represents the limit of the agent's **absolute control**, but not its knowledge
   - e.g., **Robot control**: the agent sends motor commands (actions), but muscles, joints, and physical dynamics belong to the environment
   - e.g., **Chess**: the agent chooses moves, but the rules of the game and opponent's responses are part of the environment
-
----
 
 ## Formalizing the Agent-Env Interface
 
@@ -54,7 +50,7 @@ $$\sum_{s' \in \mathcal{S}} \sum_{r \in \mathcal{R}} p(s', r \mid s, a) = 1, \qu
 | Reward Probability | $p(r \mid s, a) = \sum_{s'} p(s', r \mid s, a)$ | Prob. of reward given $(s, a)$ |
 | Expected Reward | $r(s, a) = \sum_{r} r \sum_{s'} p(s', r \mid s, a)$ | Expected immediate reward |
 
----
+
 
 ## Markov Property
 
@@ -74,13 +70,13 @@ $$\Pr(S_{t+1} \mid S_t, A_t) = \Pr(S_{t+1} \mid S_1, A_1, S_2, A_2, \ldots, S_t,
 
 > This should be viewed as a restriction on the state representation. If the state is well defined, then it contains all the information necessary to predict the future, and the Markov property holds. If the state is not well defined, then it fails to summarize the relevant history, and the Markov property is violated.
 
----
+
 
 ## Reward Hypothesis
 
 > That all of what we mean by goals and purposes can be well thought of as the maximization of the expected value of the cumulative sum of a received **scalar signal** (called reward).
 
----
+
 
 ## Returns
 
@@ -111,7 +107,7 @@ where $0 \le \gamma \le 1$ is the **discount factor**.
 | $\gamma = 0$ | Myopic — only cares about immediate reward |
 | $\gamma \to 1$ | Far-sighted — values future rewards almost equally |
 
----
+
 
 ## Episodic vs Continuing Tasks
 
